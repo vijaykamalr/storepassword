@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+.error{
+  color: red;
+}
+.color-white{
+  color: white !important;
+}
