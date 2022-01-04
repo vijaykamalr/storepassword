@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUrl = "http://localhost:8080";
+// const baseUrl = "http://localhost:8080";
+const baseUrl = "https://expense-firebase.herokuapp.com";
 export const getRequest = (url) => {
   return axios.get(baseUrl + url);
 };

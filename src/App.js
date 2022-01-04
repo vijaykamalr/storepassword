@@ -1,18 +1,19 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable array-callback-return */
 import "./App.css";
 import { Formik } from "formik";
-import { getRequest, postRequest } from "./services/apiService";
-import { useEffect, useState } from "react";
+import { postRequest } from "./services/apiService";
+import { useState } from "react";
 
 function App() {
-  const [passwordList, setPasswordList] = useState([]);
-  useEffect(() => {
-    const getPasswordList = async () => {
-      const getList = await postRequest('/password/list',{});
-      setPasswordList(getList.data);
-    };
-    getPasswordList();
-  }, []);
+  const [passwordList] = useState([]);
+  // useEffect(() => {
+  //   const getPasswordList = async () => {
+  //     const getList = await postRequest('/password/list',{});
+  //     setPasswordList(getList.data);
+  //   };
+  //   getPasswordList();
+  // }, []);
   return (
     <div className="App">
       <div className="container">
@@ -37,7 +38,7 @@ function App() {
             return errors;
           }}
           onSubmit={async (values, { setSubmitting }) => {
-            const datareq = await postRequest("/password/store", values);
+            await postRequest("/password/store", values);
             setSubmitting(false);
           }}
         >
@@ -148,7 +149,7 @@ function App() {
             })}
           </tbody>
         </table>
-      </div>
+      </div> 
     </div>
   );
 }
