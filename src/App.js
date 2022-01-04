@@ -37,9 +37,10 @@ function App() {
             }
             return errors;
           }}
-          onSubmit={async (values, { setSubmitting }) => {
+          onSubmit={async (values, { setSubmitting,resetForm }) => {
             await postRequest("/password/store", values);
             setSubmitting(false);
+            resetForm()
           }}
         >
           {({
